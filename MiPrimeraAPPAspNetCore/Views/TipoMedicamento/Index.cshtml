@@ -6,13 +6,37 @@
 
 
 <div class="input-group">
-	<input id="txtNombreTipoMedicamento" onkeyup = "filtrarTipoMedicamento()" type="text" class="form-control" placeholder="Ingresar tipo medicamento a buscar">
-	@* <button class="btn btn-outline-secondary" type="button" onclick="Buscar()">Buscar</button>
-	<button class="btn btn-outline-secondary" type="button" onclick="Limpiar()">Limpiar</button> *@
-
+    <div class="input-group-prepend">
+        <span class="input-group-text"><i class="fa fa-search"></i></span>
+    </div>
+    <input id="txtNombreTipoMedicamento" onkeyup="filtrarTipoMedicamento()" type="text" class="form-control" placeholder="Ingresar tipo medicamento a buscar">
 </div>
 
-<div id="divTabla"></div>
 
+<fieldset class="border p-3">
+    <legend class="h5">Guardar Datos Del Tipo de Medicamento</legend>
+    <form id="frmGuardarTipoMedicamento" method="post" class="row g-3">
+        <div class="col-md-4">
+            <label for="nombre" class="form-label">Id Tipo Medicamento</label>
+            <input type="text" class="form-control" name="idTipoMedicamento" id="idTipoMedicamento" placeholder="Id tipo medicamento" readonly>
+        </div>
+        <div class="col-md-4">
+            <label for="direccion" class="form-label">Nombre</label>
+            <input type="text" class="form-control" name="nombre" id="nombre">
+        </div>
+        <div class="col-md-4">
+            <label for="personacontacto" class="form-label">Descripción</label>
+            <input type="text" class="form-control" name="descripcion" id="descripcion">
+        </div>
+        <div class="col-12">
+            <button type="button" class="btn btn-danger" onclick="GuardarTipoMedicamento()">Guardar</button>
+            <button type="button" class="btn btn-primary" onclick="LimpiarTipoMedicamento()">Limpiar</button>
+            <button type="button" class="btn btn-secondary" onclick="ActualizarCambiosTipoMedicamento()">Actualizar</button>
+        </div>
+    </form>
+</fieldset>
+
+<div id="divTabla"></div>
 <script src="~/js/generic.js"></script>
 <script src="~/js/tipomedicamento.js"></script>
+<link href="~/css/formulariostyle.css" rel="stylesheet" />

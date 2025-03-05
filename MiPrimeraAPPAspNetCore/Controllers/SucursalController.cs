@@ -1,5 +1,6 @@
 ﻿using CapaDatos;
 using CapaEntidad;
+using CapaNegocio;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MiPrimeraAPPAspNetCore.Controllers
@@ -21,6 +22,11 @@ namespace MiPrimeraAPPAspNetCore.Controllers
         {
             SucursalDAL obj = new SucursalDAL();
             return obj.filtrarSucursal(objSucursal);
+        }
+        public int GuardarSucursal(SucursalCLS oSucursalCLS)
+        {
+            SucursalBL obj = new SucursalBL();
+            return obj.GuardarSucursal(oSucursalCLS);
         }
     }
 }

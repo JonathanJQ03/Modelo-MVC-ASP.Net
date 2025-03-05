@@ -40,9 +40,9 @@ button.accept-policy {
 }
 
 .footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  line-height: 60px;
+    line-height: 60px; /* Ajusta la altura del footer */
+    background-color: #f8f9fa; /* Cambia el color de fondo del footer, si lo necesitas */
+    text-align: center; /* Alinea el texto al centro */
+    padding: 10px 0; /* Añade algo de espacio alrededor */
 }
+

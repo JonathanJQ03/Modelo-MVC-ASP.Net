@@ -9,7 +9,9 @@ async function listarSucursal() {
         url: "Sucursal/ListarSucursal",
         cabeceras: ["Id Sucursal", "Nombre", "Direccion"],
         propiedades: ["idSucursal", "nombre", "direccion"],
-        divContenedorTabla: "divContenedorTabla"
+        divContenedorTabla: "divContenedorTabla",
+        editar: true,
+        eliminar: true
     }
 
     pintar(objSucursal);
@@ -34,3 +36,19 @@ function LimpiarSucursal() {
     listarSucursal();
 
  }
+
+function GuardarSucursal() {
+    let forma = document.getElementById("frmSucursal");
+    //Constructor que nos trae toda la informacion 
+    //envio como parametro los datos
+    let frm = new FormData(forma);
+
+    fetchPost("Sucursal/GuardarSucursal", "text", frm, function (res) {
+        LimpiarSucursal();
+        LimpiarDatos("frmSucursal");
+    });
+
+}
+
+
+

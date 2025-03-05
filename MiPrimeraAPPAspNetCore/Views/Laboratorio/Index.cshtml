@@ -1,30 +1,45 @@
 ﻿@{
-	ViewData["Title"] = "Laboratorio";
+    ViewData["Title"] = "Laboratorio";
 }
-<fieldset class="border p-3">
-    <legend class="h5">Buscar Laboratorio</legend>
-    <form  id ="frmBusqueda" method ="post" class="row g-3">
-        <div class="col-md-4">
-            <label for="nombre" class="form-label">Nombre</label>
-            <input type="text" class="form-control" name="nombre" id="nombre">
+<!-- Botón para abrir el modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalLaboratorio" onclick="LimpiarLaboratorio()">
+    Agregar Laboratorio
+</button>
+<!-- Modal -->
+<div class="modal fade" id="modalLaboratorio" tabindex="-1" aria-labelledby="modalLaboratorioLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalLaboratorioLabel">Agregar Laboratorio</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+                <form id="frmLaboratorio" method="post" class="row g-3">
+                    <input type="hidden" id="iidlaboratorio" name="iidlaboratorio" value="0">
+                    <div class="col-md-12">
+                        <label for="nombre" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Nombre de Laboratorio">
+                    </div>
+                    <div class="col-md-12">
+                        <label for="direccion" class="form-label">Dirección</label>
+                        <input type="text" class="form-control" name="direccion" id="direccion" placeholder="Dirección Laboratorio">
+                    </div>
+                    <div class="col-md-12">
+                        <label for="personacontacto" class="form-label">Persona Contacto</label>
+                        <input type="text" class="form-control" name="personacontacto" id="personacontacto" placeholder="Persona de Contacto">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary" id="btnGuardar" onclick="GuardarLaboratorio()">Guardar</button>
+                <!-- El botón de actualizar se añadirá dinámicamente en el JavaScript -->
+            </div>
         </div>
-        <div class="col-md-4">
-            <label for="direccion" class="form-label">Direccion</label>
-            <input type="text" class="form-control" name="direccion" id="direccion">
-        </div>
-        <div class="col-md-4">
-            <label for="personacontacto" class="form-label">Persona Contacto</label>
-            <input type="text" class="form-control" name="personacontacto" id="personacontacto">
-        </div>
-        <div class="col-12">
-            <button type="button" class="btn btn-danger" onclick="BuscarLaboratorio()">Buscar</button>
-            <button type="button" class="btn btn-primary" onclick="LimpiarLaboratorio()">Limpiar</button>
-        </div>
-    </form>
-</fieldset>
-
-
-<h1>Laboratorios</h1>
+    </div>
+</div>
+<h2>Lista de todos los Laboratorios del sistema:</h2>
 <div id="divTabla"></div>
 <script src="~/js/generic.js"></script>
 <script src="~/js/laboratorio.js"></script>
+<link href="~/css/formulariostyle.css" rel="stylesheet" />

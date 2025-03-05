@@ -6,6 +6,34 @@ namespace CapaDatos
 {
     public class SucursalDAL : CadenaDAL
     {
+
+        public int GuardarSucursal(SucursalCLS oSucursalCLS)
+        {
+
+            int rpta = 0;
+
+            using (SqlConnection cn = new SqlConnection(this.cadena))
+            {
+                try
+                {
+                    cn.Open();
+                    using (SqlCommand cmd = new SqlCommand("insert into Sucursal(NOMBRE,DIRECCION,BHABILITADO)\r\nvalues(@nombre, @direccion, 1)", cn))
+                    {
+                        cmd.CommandType = System.Data.CommandType.Text;
+                        cmd.Parameters.AddWithValue("@nombre", oSucursalCLS.nombre);
+                        cmd.Parameters.AddWithValue("@direccion", oSucursalCLS.direccion);
+
+                        rpta = cmd.ExecuteNonQuery();
+                    }
+                }
+                catch (Exception)
+                {
+                    cn.Close();
+
+                }
+            }
+            return rpta;
+        }
         public List<SucursalCLS> listarSucursales()
         {
             List<SucursalCLS> lista = null;
@@ -51,7 +79,7 @@ namespace CapaDatos
         {
             List<SucursalCLS> lista = null;
 
-            
+
 
             using (SqlConnection cn = new SqlConnection(this.cadena))
             {

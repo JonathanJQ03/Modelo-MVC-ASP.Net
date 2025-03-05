@@ -1,5 +1,6 @@
 ﻿using CapaDatos;
 using CapaEntidad;
+using CapaNegocio;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MiPrimeraAPPAspNetCore.Controllers
@@ -10,17 +11,6 @@ namespace MiPrimeraAPPAspNetCore.Controllers
         {
             return View();
         }
-
-        //public IActionResult SinMenu()
-        //{
-        //    return View();
-        //}
-
-
-        //public string saludar(string name)
-        //{
-        //    return "Hello " + name;
-        //}
 
         public List<TipoMedicamentoCLS> ListartipoMedicamento()
         {
@@ -33,5 +23,32 @@ namespace MiPrimeraAPPAspNetCore.Controllers
             TipoMedicamentoDAL tipoMedicamentoDAL = new TipoMedicamentoDAL();
             return tipoMedicamentoDAL.filtrarTipoMedicamento(nombre);
         }
+        //OJO COMO ENVIO UN TIO INT SE ENVIA ACORDE UN FORMATO TEXTO Y NO JSON PQ NO TIENE EL VALOR DE LISTA
+        //public int GuardarTipoMedicamento(TipoMedicamentoCLS oTipoMedicamentoCLS) {
+        //    return 0;
+        //}
+        public int GuardarTipoMedicamento(TipoMedicamentoCLS oTipoMedicamentoCLS)
+        {
+            TipoMedicamentoBL obj = new TipoMedicamentoBL();
+            return obj.GuardarTipoMedicamento(oTipoMedicamentoCLS);
+        }
+        public TipoMedicamentoCLS RecuperarTipoMedicamento(int idtipomedicamento)
+        {
+            TipoMedicamentoBL tipoMedicamentoDAL = new TipoMedicamentoBL();
+            return tipoMedicamentoDAL.RecuperarTipoMedicamento(idtipomedicamento);
+        }
+
+        public int ActualizarTipoMedicamento(TipoMedicamentoCLS oTipoMedicamentoCLS)
+        {
+            TipoMedicamentoBL obj = new TipoMedicamentoBL();
+            return obj.ActualizarTipoMedicamento(oTipoMedicamentoCLS);
+        }
+        public int EliminarTipoMedicamento(TipoMedicamentoCLS oTipoMedicamentoCLS)
+        {
+            TipoMedicamentoBL obj = new TipoMedicamentoBL();
+            return obj.EliminarTipoMedicamentos(oTipoMedicamentoCLS);
+        }
+       
+
     }
 }

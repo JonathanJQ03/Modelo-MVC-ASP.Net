@@ -10,6 +10,35 @@ namespace CapaDatos
 {
     public class LaboratorioDAL : CadenaDAL
     {
+        
+        public int GuardarLaboratorio(LaboratorioCLS oLaboratorioCLS)
+        {
+
+            int rpta = 0;
+
+            using (SqlConnection cn = new SqlConnection(this.cadena))
+            {
+                try
+                {
+                    cn.Open();
+                    using (SqlCommand cmd = new SqlCommand("insert into Laboratorio(NOMBRE, DIRECCION, PERSONACONTACTO, BHABILITADO) values (@nombre, @direccion, @personacontacto, 1)", cn))
+                    {
+                        cmd.CommandType = System.Data.CommandType.Text;
+                        cmd.Parameters.AddWithValue("@nombre", oLaboratorioCLS.nombre);
+                        cmd.Parameters.AddWithValue("@direccion", oLaboratorioCLS.direccion);
+                        cmd.Parameters.AddWithValue("@personacontacto", oLaboratorioCLS.personacontacto);
+
+                        rpta = cmd.ExecuteNonQuery();
+                    }
+                }
+                catch (Exception)
+                {
+                    cn.Close();
+
+                }
+            }
+            return rpta;
+        }
         public List<LaboratorioCLS> listarLaboratorios()
         {
             List<LaboratorioCLS> lista = null;
@@ -32,7 +61,7 @@ namespace CapaDatos
                             while (dr.Read())
                             {
                                 laboratorio = new LaboratorioCLS();
-                                laboratorio.iddlaboratorio = dr.GetInt32(0);
+                                laboratorio.iidlaboratorio = dr.GetInt32(0);
                                 laboratorio.nombre = dr.GetString(1);
                                 laboratorio.direccion = dr.GetString(2);
                                 laboratorio.personacontacto = dr.GetString(3);
@@ -79,7 +108,7 @@ namespace CapaDatos
                             while (dr.Read())
                             {
                                 olaboratorioCLS = new LaboratorioCLS();
-                                olaboratorioCLS.iddlaboratorio = dr.IsDBNull(0) ? 0 : dr.GetInt32(0);
+                                olaboratorioCLS.iidlaboratorio = dr.IsDBNull(0) ? 0 : dr.GetInt32(0);
                                 olaboratorioCLS.nombre = dr.IsDBNull(1) ? "" : dr.GetString(1);
                                 olaboratorioCLS.direccion = dr.IsDBNull(2) ? "" : dr.GetString(2);
                                 olaboratorioCLS.personacontacto = dr.IsDBNull(3) ? "" : dr.GetString(3);

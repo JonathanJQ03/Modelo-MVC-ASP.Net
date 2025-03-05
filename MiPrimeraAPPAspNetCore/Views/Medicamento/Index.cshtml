@@ -1,9 +1,49 @@
-﻿
-@{
-    ViewData["Title"] = "Index";
+﻿@{
+    ViewData["Title"] = "Medicamento";
 }
-
-<h1>Medicamento</h1>
-
+<!-- Botón para abrir el modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalMedicamento" onclick="LimpiarMedicamento()">
+    Agregar Medicamento
+</button>
+<!-- Modal -->
+<div class="modal fade" id="modalMedicamento" tabindex="-1" aria-labelledby="modalMedicamentoLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalMedicamentoLabel">Agregar Medicamento</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+                <form id="frmMedicamento" method="post" class="row g-3">
+                    <input type="hidden" id="iidmedicamento" name="iidmedicamento" value="0">
+                    <div class="col-md-12">
+                        <label for="nombremedicamento" class="form-label">Nombre Medicamento</label>
+                        <input type="text" class="form-control" name="nombremedicamento" id="nombremedicamento" placeholder="Nombre del Medicamento">
+                    </div>
+                    <div class="col-md-12">
+                        <label for="iidlaboratorio" class="form-label">Laboratorio</label>
+                        <select class="form-select" id="iidlaboratorio" name="iidlaboratorio">
+                            <option value="0">--Seleccione--</option>
+                        </select>
+                    </div>
+                    <div class="col-md-12">
+                        <label for="iidtipomedicamento" class="form-label">Tipo Medicamento</label>
+                        <select class="form-select" id="iidtipomedicamento" name="iidtipomedicamento">
+                            <option value="0">--Seleccione--</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary" id="btnGuardar" onclick="GuardarMedicamento()">Guardar</button>
+                <!-- El botón de actualizar se añadirá dinámicamente en el JavaScript -->
+            </div>
+        </div>
+    </div>
+</div>
+<h2>Lista de todos los Medicamentos del sistema:</h2>
+<div id="divTabla"></div>
 <script src="~/js/generic.js"></script>
 <script src="~/js/medicamento.js"></script>
+<link href="~/css/formulariostyle.css" rel="stylesheet" />>

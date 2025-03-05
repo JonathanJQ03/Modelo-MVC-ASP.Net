@@ -11,18 +11,39 @@ namespace MiPrimeraAPPAspNetCore.Controllers
         {
             return View();
         }
-        
-        public string Saludar()
+
+        public List<MedicamentoCLS> ListarMedicamentos()
         {
-            return "Hola crack ";
+            MedicamentoBL obj = new MedicamentoBL();
+            return obj.listarMedicamento();
+        }
+        //public List<MedicamentoCLS> filtrar(LaboratorioCLS objLaboratorio)
+        //{
+        //    LaboratorioBL obj = new LaboratorioBL();
+        //    return obj.filtrarLaboratorio(objLaboratorio);
+        //}
+        public int GuardarMedicamento(MedicamentoCLS oMedicamentoCLS)
+        {
+            MedicamentoBL obj = new MedicamentoBL();
+            return obj.GuardarMedicamento(oMedicamentoCLS);
+
+        }
+        public int ActualizarMedicamento(MedicamentoCLS oMedicamentoCLS)
+        {
+            MedicamentoBL obj = new MedicamentoBL();
+            return obj.ActualizarMedicamento(oMedicamentoCLS);
         }
 
-        public List<TipoMedicamentoCLS> ListartipoMedicamento()
+        public int EliminarMedicamento(MedicamentoCLS oMedicamentoCLS)
         {
-            TipoMedicamentoDAL tipoMedicamentoDAL = new TipoMedicamentoDAL();
-            return tipoMedicamentoDAL.listarTipoMedicamento();
+            MedicamentoBL obj = new MedicamentoBL();
+            return obj.EliminarMedicamento(oMedicamentoCLS);
         }
-
-
+        public MedicamentoCLS RecuperarMedicamento(int iidlaboratorio)
+        {
+            MedicamentoBL obj = new MedicamentoBL();
+            return obj.RecuperarMedicamento(iidlaboratorio);
+        }
     }
 }
+

@@ -1,0 +1,86 @@
+﻿/* Reset General */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estructura General */
+body, .wrapper {
+    display: flex;
+    height: 100vh;
+}
+
+/* Menú Lateral */
+#menu {
+    width: 200px;
+    background-color: #222;
+    color: #bbb;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: transform 0.3s ease-in-out;
+}
+
+    #menu ul {
+        list-style: none;
+        padding: 20px;
+    }
+
+        #menu ul li {
+            border-bottom: 1px solid #2a2a2a;
+            padding: 10px 0;
+        }
+
+            #menu ul li a {
+                color: inherit;
+                text-decoration: none;
+                display: block;
+                font-size: 13px;
+                font-weight: 600;
+                padding: 12px;
+                transition: all 0.3s ease;
+            }
+
+                #menu ul li a:hover {
+                    background-color: #111;
+                    color: #FFCC33;
+                }
+
+/* Botón para Ocultar Menú */
+#showmenu {
+    position: absolute;
+    top: 5px;
+    right: -45px;
+    /*background-color: #FFCC33;*/
+    color: #222;
+    padding: 8px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+/*
+    #showmenu:hover {
+        background-color: #ffdb4d;
+    }*/
+
+/* Contenedor Principal */
+.container-content {
+    flex-grow: 1;
+    padding: 20px;
+    margin-left: 250px;
+    transition: margin-left 0.3s ease-in-out;
+}
+
+/* Cuando el Menú está Oculto */
+.menu-hidden {
+    transform: translateX(-200px);
+
+
+}
+
+.container-expanded {
+    margin-left: 30px; 
+}
+

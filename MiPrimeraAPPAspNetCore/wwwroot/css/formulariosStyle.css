@@ -1,0 +1,43 @@
+﻿/* Estilo general para los campos de entrada y áreas de texto */
+input, textarea {
+    background: transparent;
+    border: none; /* Elimina el borde completo */
+    outline: none; /* Elimina el contorno al enfocar */
+    border-bottom: 2px solid #03A9F4; /* Línea inferior de color celeste */
+    font-size: 1em;
+    color: white;
+    width: 100%;
+    box-sizing: border-box; /* Asegura que el padding y border no afecten el ancho total */
+}
+
+/* Estilo para el contenedor de los campos de entrada y áreas de texto */
+.writing {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+    /* Estilo para las etiquetas */
+    .writing label {
+        position: absolute;
+        top: calc(10px + 0.8em);
+        left: 0;
+        pointer-events: none;
+        transition: all .2s ease;
+        color: #ababab;
+    }
+
+    /* Estilo para las etiquetas al enfocar o tener texto */
+    .writing input:focus ~ label,
+    .writing input.has-text ~ label,
+    .writing textarea:focus ~ label,
+    .writing textarea.has-text ~ label {
+        top: 0;
+        font-size: .9em;
+    }
+
+    /* Estilo para la línea debajo de los campos de entrada y áreas de texto */
+    .writing input:focus ~ span:before,
+    .writing textarea:focus ~ span:before {
+        width: 100%;
+    }

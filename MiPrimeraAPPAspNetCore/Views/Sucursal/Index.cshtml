@@ -10,7 +10,7 @@
     <form id="frmSucursal" method="post" class="row g-3">
         <div class="col-md-4">
             <label for="nombre" class="form-label">Id</label>
-            <input type="text" class="form-control" name="idSucursal" id="idSucursal" placeholder="Ingresar Id">
+            <input type="text" class="form-control" name="idSucursal" id="idSucursal" placeholder="Ingresar Id" readonly>
         </div>
         <div class="col-md-4">
             <label for="direccion" class="form-label">Nombre</label>
@@ -23,6 +23,8 @@
         <div class="col-12">
             <button type="button" class="btn btn-danger" onclick="BuscarSucursal()">Buscar</button>
             <button type="button" class="btn btn-primary" onclick="LimpiarSucursal()">Limpiar</button>
+            <button type="button" class="btn btn-primary" onclick="GuardarSucursal()">Guardar</button>
+
         </div>
     </form>
 </fieldset>

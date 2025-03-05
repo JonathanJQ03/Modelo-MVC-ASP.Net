@@ -8,7 +8,7 @@ namespace CapaEntidad
 {
     public class LaboratorioCLS
     {
-        public int iddlaboratorio { get; set; }
+        public int iidlaboratorio { get; set; }
         public string nombre { get; set; }
         public string direccion { get; set; }
         public string personacontacto { get; set; }

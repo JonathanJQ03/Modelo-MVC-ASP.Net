@@ -22,5 +22,11 @@ namespace CapaNegocio
         //    SucursalDAL sucursalDAL = new SucursalDAL();
         //    return sucursalDAL.filtrarSucursal(nombre);
         //}
+        public int GuardarSucursal(SucursalCLS oSucursalCLS)
+        {
+            SucursalDAL obj = new SucursalDAL();
+            return obj.GuardarSucursal(oSucursalCLS);
+        }
+
     }
 }
